@@ -1,0 +1,9 @@
+/build/
+/public/
+/config/
+/dist/
+/*.js
+/src/types/
+components.d.ts
+auto-imports.d.ts
+.eslintrc-auto-import.json

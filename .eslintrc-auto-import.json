@@ -1,0 +1,10 @@
+{
+  "globals": {
+    "useApp": true,
+    "useLoading": true,
+    "useModule": true,
+    "usePrecision": true,
+    "useRefs": true,
+    "useState": true
+  }
+}
