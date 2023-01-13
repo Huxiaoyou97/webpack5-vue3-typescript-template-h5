@@ -6,7 +6,6 @@ import router from '@/router';
 
 import md5 from 'nano-md5';
 import queryString from 'query-string';
-import { ElMessage } from 'element-plus';
 import HiCache from '@/core/utils/hiCache';
 import HiStance from '@/core/utils/hiStance';
 import { Router } from 'vue-router';
@@ -223,7 +222,7 @@ instance.interceptors.response.use(
                         value: err.response.status,
                     });
             }
-            ElMessage.error(err.message);
+            // ElMessage.error(err.message);
         }
         return Promise.reject(err.message);
     }
