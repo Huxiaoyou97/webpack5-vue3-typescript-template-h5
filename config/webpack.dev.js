@@ -81,7 +81,7 @@ const devWebpackConfig = merge(common, {
                 },
             ],
         },
-        port: 8081, // 端口号
+        port: 10002, // 端口号
         open: false, // 自动打开
         hot: true, // 热更新
         allowedHosts: 'all',
