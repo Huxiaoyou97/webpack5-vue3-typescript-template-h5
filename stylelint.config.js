@@ -14,6 +14,7 @@ module.exports = {
         'alpha-value-notation': null, // 允许小数
         'color-function-notation': null, // 允许rgb颜色
         'media-feature-name-no-vendor-prefix': true, // 不允许媒体特性名称的前缀, 插件自动添加
+        'comment-whitespace-inside': null,
         'selector-pseudo-element-no-unknown': [
             true,
             {
@@ -23,7 +24,7 @@ module.exports = {
         'at-rule-no-unknown': [
             true,
             {
-                ignoreAtRules: ['mixin', 'include', 'if', 'else', 'extend', 'for', '$', 'forward', 'use'], // 忽略规则
+                ignoreAtRules: ['mixin', 'include', 'if', 'else', 'extend', 'for', '$', 'forward', 'use', 'tailwind'], // 忽略规则
             },
         ],
     },

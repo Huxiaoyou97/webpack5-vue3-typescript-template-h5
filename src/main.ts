@@ -4,6 +4,9 @@ import App from './App.vue';
 import HiCache from '@/core/utils/hiCache';
 import HiStance from '@/core/utils/hiStance';
 
+// reset
+import './styles/reset.scss';
+
 // tailwind css
 import './assets/css/tailwind.css';
 

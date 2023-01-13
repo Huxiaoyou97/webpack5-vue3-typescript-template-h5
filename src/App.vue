@@ -10,9 +10,16 @@
 
 <script setup lang="ts">
 import useApp from '@/core/hooks/useApp';
-import { computed, ref } from 'vue';
 
 const { locale, t } = useApp();
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+#app {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    color: #fff;
+    background-color: black;
+}
+</style>
