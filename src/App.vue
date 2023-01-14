@@ -9,8 +9,6 @@
 </template>
 
 <script setup lang="ts">
-import useApp from '@/core/hooks/useApp';
-
 const { locale, t } = useApp();
 </script>
 
