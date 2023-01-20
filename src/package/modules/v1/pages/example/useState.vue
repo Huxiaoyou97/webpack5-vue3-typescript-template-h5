@@ -1,29 +1,40 @@
 <!--
  * @author 胡小右
- * @date 2023-01-12 13:13:57
- * @desc demo
+ * @date 2023-01-19 18:22:44
+ * @desc useState的使用demo
 -->
 
 <template>
-    <div class="demo">demo --- {{ count }} --- {{ userinfo.username }}</div>
+    <div class="example-useState">
+        <van-button type="danger" @click="setCounter(++counter)">点击+1: {{ counter }}</van-button>
 
-    <van-button type="primary" @click="setCount(++count)">数字+1</van-button>
-    <van-button type="primary" @click="editUsername('李四')">修改名称</van-button>
+        <van-button type="warning" :disabled="timerDisabled" @click="getCode">{{ timerText }}</van-button>
 
-    <van-button type="primary" @click="getCode" :disabled="timerDisabled">{{ timerText }}</van-button>
-
-    <router-link to="/test">跳转test</router-link>
+        <div>{{ userinfo }} <van-button type="danger" @click="editUsername('李四')">修改名称为 李四</van-button></div>
+    </div>
 </template>
 
 <script lang="ts" setup>
-import { onBeforeUnmount } from 'vue';
+const [counter, setCounter] = useState(0);
 
-const { t } = useApp();
-const [count, setCount] = useState(0);
+const { t, appStore } = useApp();
 
-const [userinfo, setUserinfo] = useState({
+interface UserInfo {
+    username?: string;
+    age: number;
+}
+
+const [userinfo, setUserinfo] = useState<UserInfo>({
     username: '张三',
+    age: 18,
 });
+
+function editUsername(name: string) {
+    setUserinfo({
+        ...userinfo.value,
+        username: name,
+    });
+}
 
 // 验证码倒计时函数案例
 let timerInterval: NodeJS.Timer | null = null;
@@ -32,7 +43,6 @@ const [timerText, setTimerText] = useState('获取验证码');
 const [timerDisabled, setTimerDisabled] = useState(false);
 
 function countdown() {
-    console.log('执行 countdown');
     if (timer.value > 1) {
         setTimer(timer.value - 1);
         setTimerText(`${timer.value}秒后重新获取`);
@@ -59,23 +69,6 @@ onBeforeUnmount(() => {
     setTimerDisabled(false);
     clearInterval(timerInterval);
 });
-
-function editUsername(name: string) {
-    setUserinfo({
-        ...userinfo,
-        username: name,
-    });
-}
 </script>
 
 <style scoped lang="scss"></style>
-
-<script lang="ts">
-export default {
-    app: {
-        route: {
-            path: '/demo',
-        },
-    },
-};
-</script>

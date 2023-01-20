@@ -93,11 +93,13 @@ const devWebpackConfig = merge(common, {
         proxy: {
             '/api': {
                 target: 'http://192.168.80.40',
-                // secure: true, // 如果是 https ,需要开启这个选项
+                // target: 'https://i1001.xb55.net',
+                secure: true, // 如果是 https ,需要开启这个选项
+                ws: true, // 是否启用websockets
                 changeOrigin: true, // 是否是跨域请求
-                pathRewrite: {
-                    '^/api': '',
-                },
+                // pathRewrite: {
+                //     '^/api': '',
+                // },
             },
         },
     },
@@ -127,7 +129,7 @@ devWebpackConfig.plugins.push(
         width: 20, 					 // 默认20，进度格子数量即每个代表进度数，如果是20，那么一格就是5。
         format: chalk.blue.bold("build") + chalk.yellow('[:bar] ') + chalk.green.bold(':percent') + ' (:elapsed秒)',
         stream: process.stderr,        // 默认stderr，输出流
-        complete: "㊖",                 // 默认“=”，完成字符
+        complete: "#",                 // 默认“=”，完成字符
         clear: false,                  // 默认true，完成时清除栏的选项
         renderThrottle: "",            // 默认16，更新之间的最短时间（以毫秒为单位）
         callback() {                   // 进度条完成时调用的可选函数

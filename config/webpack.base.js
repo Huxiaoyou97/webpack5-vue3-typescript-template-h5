@@ -14,7 +14,7 @@ module.exports = {
         extensions: ['.js', '.vue', '.json', '.ts', '.tsx', '.mjs'],
         alias: {
             '@': resolve('src'),
-            '@component': resolve('src/package/modules'),
+            '@modules': resolve('src/package/modules'),
             'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
         },
     },
@@ -103,7 +103,7 @@ module.exports = {
                 /\.md$/, // .md
             ],
             imports: ['vue', 'vue-router', 'pinia', '@vueuse/core'],
-            dirs: ['src/core/hooks/'],
+            dirs: ['src/core/hooks/', 'src/core/api/'],
             vueTemplate: false,
             defaultExportByFilename: false,
             resolvers: [],
